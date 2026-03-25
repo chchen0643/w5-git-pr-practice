@@ -59,6 +59,24 @@
     document.getElementById('user-input').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') sendMessage();
     });
+
+    function searchMessages(keyword) {
+      const chatBox = document.getElementById('chat-box');
+      const messages = chatBox.querySelectorAll('.message');
+      const query = keyword.trim().toLowerCase();
+
+      messages.forEach(function(msg) {
+        // 取出純文字（排除 timestamp）
+        const timestamp = msg.querySelector('.timestamp');
+        const rawText = (timestamp ? msg.textContent.replace(timestamp.textContent, '') : msg.textContent).toLowerCase();
+
+        if (!query || rawText.includes(query)) {
+          msg.classList.remove('hidden');
+        } else {
+          msg.classList.add('hidden');
+        }
+      });
+    }
   </script>
 
 </body>
