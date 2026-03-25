@@ -1,11 +1,11 @@
 // 這個檔案有幾個值得 review 的地方，試著找找看！
 
 // 問題一：變數命名不清楚
-function a(x) {
-  var d = document.getElementById('chat-box');
-  var m = document.createElement('div');
-  m.textContent = x;
-  d.appendChild(m);
+function addMessage(x) {
+  var chatBox = document.getElementById('chat-box');
+  var message = document.createElement('div');
+  message.textContent = x;
+  chatBox.appendChild(message);
 }
 
 // 問題二：重複的程式碼
